@@ -8,7 +8,7 @@ export default function Stars(props) {
         let interval = setInterval(() => {
             setCount(count + 1)
             props.effects()
-        }, props.blink)
+        }, props.blinkInterval)
         return () => clearInterval(interval)
     })
     return (

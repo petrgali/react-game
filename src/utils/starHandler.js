@@ -1,4 +1,4 @@
-import config from "../config/Config"
+import config from "../config/GameConfig"
 export { starBlink, starSetting }
 
 const getRandomPos = (min, max) => {
@@ -6,19 +6,19 @@ const getRandomPos = (min, max) => {
 }
 const starSetting = (() => {
     let starsPos = []
-    for (let idx = 0; idx < config.starsCount; idx++) {
-        let x = getRandomPos(config.starsMinPoint, config.gameareaWidth)
-        let y = getRandomPos(config.starsMinPoint, config.gameareaHeight)
+    for (let idx = 0; idx < config.stars.total; idx++) {
+        let x = getRandomPos(config.stars.offset, config.gamearea.width)
+        let y = getRandomPos(config.stars.offset, config.gamearea.height)
         starsPos.push({ top: y, left: x })
     }
     return starsPos
 })()
 const starBlink = (() => {
     let stars = document.querySelectorAll('#star')
-    for (let idx = 0; idx < config.starsCount - Math.floor(config.starsCount / 2); idx++) {
+    for (let idx = 0; idx < config.stars.total - Math.floor(config.stars.total / 2); idx++) {
         stars[idx].classList.toggle('white')
     }
-    for (let idx = Math.floor(config.starsCount / 2); idx < config.starsCount; idx++) {
+    for (let idx = Math.floor(config.stars.total / 2); idx < config.stars.total; idx++) {
         stars[idx].classList.toggle('hidden')
     }
 })
