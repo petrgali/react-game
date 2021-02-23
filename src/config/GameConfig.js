@@ -2,7 +2,7 @@ const config = {
     hotkey: {
         shipLeft: "ArrowLeft",
         shipRight: "ArrowRight",
-        shipFire: "Space"
+        shipFire: "Space",
     },
     gamearea: {
         width: 500,
@@ -21,6 +21,13 @@ const config = {
         speed: 7,
         skin: '/GLX_Galaxip.png',
         refreshInterval: 15,
+    },
+    bullet: {
+        initOffsetLeft: 14,
+        initOffsetTop: -6,
+        height: 5,
+        speed: 15,
+        refreshInterval: 15
     }
 }
 

@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react"
 import Bullet from "./Bullet"
+
 export default function BulletController(props) {
-    let [bullet, addBullet] = useState()
+    let [bullet, updateBullet] = useState()
     useEffect(() => {
         if (props.state[props.hotkey.shipFire] && !bullet) {
-            addBullet({ left: props.init.left + 14, top: props.init.top - 6 })
+            updateBullet({
+                left: props.init.left + props.bullet.initOffsetLeft,
+                top: props.init.top + props.bullet.initOffsetTop
+            })
         }
     }, [props])
-    
-    if (!!bullet) {
+    if (!bullet) {
         return (
-            <div className="bullets">
-                <Bullet
-                    init={{ left: bullet.left, top: bullet.top }}
-                    removeBullet={() => addBullet()} />
-            </div>
+            <div className="bullets"></div>
         )
     }
     return (
-        <div className="bullets"></div>
+        <div className="bullets">
+            <Bullet
+                bullet={props.bullet}
+                init={{ left: bullet.left, top: bullet.top }}
+                removeBullet={() => updateBullet()} 
+                inform={(msg)=> props.inform(msg)}/>
+        </div>
     )
 }

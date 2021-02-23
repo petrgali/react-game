@@ -5,9 +5,13 @@ export default function Bullet(props) {
     let [top, setTop] = useState(props.init.top)
     useEffect(() => {
         let interval = setInterval(() => {
-            setTop(top - 5)
-            if (top <= 0) props.removeBullet()
-        }, 10)
+            setTop(top - props.bullet.speed)
+            props.inform({
+                left: props.init.left,
+                top: top
+            })
+            if (top < props.bullet.height) props.removeBullet()
+        }, props.bullet.refreshInterval)
         return () => clearInterval(interval)
     }, [top])
     return (
