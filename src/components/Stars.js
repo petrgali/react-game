@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import './Stars.css'
+import '../css/Stars.css'
 import SingleStar from "./SingleStar"
 
 export default function Stars(props) {

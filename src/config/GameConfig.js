@@ -1,11 +1,13 @@
 const config = {
     hotkey: {
         shipLeft: "ArrowLeft",
-        shipRight: "ArrowRight"
+        shipRight: "ArrowRight",
+        shipFire: "Space"
     },
     gamearea: {
         width: 500,
         height: 550,
+        offset: 8
     },
     stars: {
         total: 30,
@@ -15,9 +17,10 @@ const config = {
     ship: {
         top: 500,
         left: 240,
-        speed: 3,
         width: 32,
-        refreshInterval: 10
+        speed: 7,
+        skin: '/GLX_Galaxip.png',
+        refreshInterval: 15,
     }
 }
 
