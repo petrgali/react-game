@@ -10,7 +10,12 @@ export default function BulletController(props) {
                 top: props.init.top + props.bullet.initOffsetTop
             })
         }
+        if (props.init.remove) {
+            updateBullet()
+            props.confirmRemove()
+        }
     }, [props])
+
     if (!bullet) {
         return (
             <div className="bullets"></div>
@@ -21,8 +26,8 @@ export default function BulletController(props) {
             <Bullet
                 bullet={props.bullet}
                 init={{ left: bullet.left, top: bullet.top }}
-                removeBullet={() => updateBullet()} 
-                inform={(msg)=> props.inform(msg)}/>
+                removeBullet={() => updateBullet()}
+                inform={(msg) => props.inform(msg)} />
         </div>
     )
 }

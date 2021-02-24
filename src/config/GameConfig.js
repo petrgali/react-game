@@ -3,6 +3,7 @@ const config = {
         shipLeft: "ArrowLeft",
         shipRight: "ArrowRight",
         shipFire: "Space",
+        action: "Enter"
     },
     gamearea: {
         width: 500,
@@ -12,7 +13,7 @@ const config = {
     stars: {
         total: 30,
         offset: 5,
-        blinkInterval: 1500,
+        blinkInterval: 1300,
     },
     ship: {
         top: 500,
@@ -28,6 +29,10 @@ const config = {
         height: 5,
         speed: 15,
         refreshInterval: 15
+    },
+    enemy: {
+        width: 24,
+        height: 14
     }
 }
 

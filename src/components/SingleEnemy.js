@@ -1,18 +1,29 @@
-//////////////////////////////
-//        hardcoded url     //
-////////////////////////////// 
+///////////////////////////////////////////////////
+//        hardcoded url && explosion offset      //
+/////////////////////////////////////////////////// 
 
 
 
-import "../css/Enemy.css"
+import "../css/enemy.css"
 
 export default function Enemy(props) {
+    if (!props.init.class)
+        return (
+            <div
+                className="enemy fighter"
+                style={{
+                    transform: `translate(${props.init.left}px, ${props.init.top}px)`,
+                    backgroundImage: `url('/UFO_enemy.png')`
+                }}>
+            </div>
+        )
+
     return (
         <div
-            className="enemy fighter"
+            className={props.init.class}
             style={{
-                transform: `translate(${props.init.left}px, ${props.init.top}px)`,
-                backgroundImage: `url('/UFO_enemy.png')`
+                transform: `translate(${props.init.left}px, ${props.init.top - 8}px)`,
+                backgroundImage: `url('/explosion.png')`
             }}>
         </div>
     )

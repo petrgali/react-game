@@ -1,4 +1,4 @@
-import "../css/Bullet.css"
+import "../css/bullet.css"
 import { useState, useEffect } from "react"
 
 export default function Bullet(props) {
