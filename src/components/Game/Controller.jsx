@@ -1,9 +1,10 @@
-
 import { useEffect, useState } from 'react';
-import Ship from './Ship'
-import BulletController from './BulletController';
-import EnemiesContoller from "./EnemiesController"
-import detectCollision from "../utils/collisionCheck"
+import Ship from '../Ship/Ship'
+import BulletController from '../Bullets/BulletController';
+import EnemiesContoller from "../Enemies/EnemiesController"
+import detectCollision from "../../utils/collisionCheck"
+import ConfirmMenu from "../Menu/MenuConfirm"
+import { SFX } from "../../utils/audioProvider"
 
 export default function Controller(props) {
     let [position, setPosition] = useState({
@@ -12,8 +13,17 @@ export default function Controller(props) {
     })
     let [enemies, updateEnemies] = useState(props.enemies)
 
+    ////////////////////////////////////////
+    //   in game menu activation watcher  //
+    ////////////////////////////////////////
+    useEffect(() => {
+        if (props.controls[props.hotkey.escape]) props.quitMenu()
+    }, [props.controls])
 
 
+    ///////////////////////////////////
+    //   ship control state watcher  //
+    ///////////////////////////////////
     useEffect(() => {
         let interval = setInterval(() => {
             if (props.controls[props.hotkey.shipLeft]
@@ -25,21 +35,34 @@ export default function Controller(props) {
         }, props.ship.refreshInterval)
         return () => clearInterval(interval)
     })
+
+
+    ///////////////////////////////
+    //      end round watcher    //
+    ///////////////////////////////
+    useEffect(() => {
+        if (enemies.length < 1) props.quitConfirm()
+    }, [enemies])
+
+
     const collisionControl = (bulletPos) => {
         let result = (detectCollision(bulletPos, enemies))
         if (result != null) updateEnemies(() => [...enemies.filter((alien, idx) => {
             if (idx === result.id && alien.destructible) {
                 setPosition({ ...position, remove: true })
+                SFX.play(props.effects.explode)
                 alien.class = "explosion"
                 alien.destructible = false
                 setTimeout(() => {
                     updateEnemies(() => [...enemies.filter((_, idx) => idx !== result.id)])
-                }, 500);
+                }, 250);
             }
             return { ...alien }
         })])
     }
 
+
+    let menu = props.gameState.quitShow ? <ConfirmMenu quitConfirm={() => props.quitConfirm()} /> : ""
     return (
         <div className="controller">
             <Ship
@@ -60,6 +83,7 @@ export default function Controller(props) {
             <EnemiesContoller
                 count={enemies}
             />
+            {menu}
         </div>
     )
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Gamefield from './components/Gamefield';
-import Stars from "./components/Stars"
+import Gamefield from './components/Game/Gamefield';
 import './index.css';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Gamefield />
-    <Stars />
+    <div className="test" >
+      <Gamefield />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

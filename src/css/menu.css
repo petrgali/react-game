@@ -1,0 +1,56 @@
+.menuscreen {
+    text-align: center;
+    font-size: 100%;
+    margin-top: 100px;
+    /* display: inline-flex; */
+}
+
+.header {
+    margin-bottom: 55%;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.testitem {
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor:pointer;
+}
+
+.listitem {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    cursor: pointer;
+}
+.listitem:hover {
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    cursor: pointer;
+    animation-timing-function: linear;
+}
+
+.blink {
+    animation: blinker 0.5s infinite;
+    font-size:larger;
+    color: rgb(34, 173, 34);
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

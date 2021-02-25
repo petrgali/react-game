@@ -1,4 +1,4 @@
-import "../css/ship.css"
+import "../../css/ship.css"
 
 export default function Ship(props) {
     return (

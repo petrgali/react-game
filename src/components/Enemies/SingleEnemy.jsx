@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////
-//        hardcoded url && explosion offset      //
+//    !!hardcoded url && explosion offset!!      //
 /////////////////////////////////////////////////// 
 
 
 
-import "../css/enemy.css"
+import "../../css/enemies.css"
 
 export default function Enemy(props) {
     if (!props.init.class)
@@ -17,7 +17,6 @@ export default function Enemy(props) {
                 }}>
             </div>
         )
-
     return (
         <div
             className={props.init.class}
