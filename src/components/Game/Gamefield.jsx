@@ -40,7 +40,7 @@ export default function Gamefield() {
           })}
           bgStyle={bgStyle}
           newSkin={(skin) => updateSkin(skin)}
-          newBg={(bg)=>updateStyle(bg)}
+          newBg={(bg) => updateStyle(bg)}
         />
       </div>
     )

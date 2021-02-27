@@ -44,7 +44,7 @@ export default function MenuOptions(props) {
                     activeBg={activeBg}
                 />
             </div>
-            <div div className="listitem">
+            <div className="listitem">
                 <div>mothership</div>
                 <ShipSwitcher
                     newSkin={(skin) => props.newSkin(skin)}
@@ -54,17 +54,17 @@ export default function MenuOptions(props) {
                     activeSkin={activeSkin}
                 />
             </div>
-            <div div className="listitem">
+            <div className="listitem">
                 <div>blaster speed</div>
                 <input type="range" min="5" max="20" step="1" value={value}
                     onChange={(elem) => setValue(elem.target.value)} />
             </div>
-            <div div className="listitem">
+            <div className="listitem">
                 <div>theme volume</div>
                 <input type="range" min="0" max="1" step="0.1" value={volMaster}
                     onChange={(elem) => setMaster(elem.target.value)} />
             </div>
-            <div div className="listitem">
+            <div className="listitem">
                 <div>effects volume</div>
                 <input type="range" min="0" max="1" step="0.1" value={volEffects}
                     onChange={(elem) => setEffects(elem.target.value)} />
