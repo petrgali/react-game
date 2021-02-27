@@ -4,7 +4,6 @@ import Gamefield from './components/Game/Gamefield';
 import './index.css';
 
 
-
 ReactDOM.render(
   <React.StrictMode>
     <div className="test" >

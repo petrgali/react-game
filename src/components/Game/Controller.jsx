@@ -4,23 +4,24 @@ import BulletController from '../Bullets/BulletController';
 import EnemiesContoller from "../Enemies/EnemiesController"
 import detectCollision from "../../utils/collisionCheck"
 import ConfirmMenu from "../Menu/MenuConfirm"
-import { SFX } from "../../utils/audioProvider"
+import { SFX } from '../../utils/audioProvider';
 
 export default function Controller(props) {
+    SFX.mainTheme.stop()
     let [position, setPosition] = useState({
         left: props.ship.left,
         top: props.ship.top,
     })
     let [enemies, updateEnemies] = useState(props.enemies)
-
+    
     ////////////////////////////////////////
     //   in game menu activation watcher  //
     ////////////////////////////////////////
     useEffect(() => {
         if (props.controls[props.hotkey.escape]) props.quitMenu()
     }, [props.controls])
-
-
+    
+    
     ///////////////////////////////////
     //   ship control state watcher  //
     ///////////////////////////////////
@@ -45,12 +46,15 @@ export default function Controller(props) {
     }, [enemies])
 
 
+    ///////////////////////////////////
+    //   ingame collision detector   //
+    ///////////////////////////////////
     const collisionControl = (bulletPos) => {
         let result = (detectCollision(bulletPos, enemies))
         if (result != null) updateEnemies(() => [...enemies.filter((alien, idx) => {
             if (idx === result.id && alien.destructible) {
                 setPosition({ ...position, remove: true })
-                SFX.play(props.effects.explode)
+                props.SFX.explosion.play()
                 alien.class = "explosion"
                 alien.destructible = false
                 setTimeout(() => {
@@ -62,7 +66,15 @@ export default function Controller(props) {
     }
 
 
-    let menu = props.gameState.quitShow ? <ConfirmMenu quitConfirm={() => props.quitConfirm()} /> : ""
+    let menu = props.gameState.quitShow
+        ? <ConfirmMenu
+            quitConfirm={() => props.quitConfirm()}
+            SFX={props.SFX}
+            controls={props.controls}
+            effects={props.effects}
+            message={"Want to quit?"}
+        />
+        : ""
     return (
         <div className="controller">
             <Ship
@@ -70,7 +82,7 @@ export default function Controller(props) {
                     left: position.left,
                     top: position.top
                 }}
-                skin={props.ship.skin}
+                skin={props.skin}
             />
             <BulletController
                 hotkey={props.hotkey}

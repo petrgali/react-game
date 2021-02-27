@@ -2,7 +2,7 @@ import "../../css/bullets.css"
 import { useState, useEffect } from "react"
 
 export default function Bullet(props) {
-   
+
     let [top, setTop] = useState(props.init.top)
     useEffect(() => {
         let interval = setInterval(() => {

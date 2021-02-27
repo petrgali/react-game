@@ -1,11 +1,18 @@
+import { useEffect } from "react"
+
+import config from "../../config/GameConfig"
+
 export default function Confirm(props) {
+    let { hotkey } = config
+    useEffect(() => {
+        props.SFX.menu.play()
+    }, [])
+    useEffect(() => {
+        if (props.controls[hotkey.confirm]) props.quitConfirm()
+    })
     return (
-        <div className="testitem">
-            <div>Want to quit?</div>
-            <div onMouseEnter={(e) => e.target.classList.toggle("blink")}
-                onMouseOut={(e) => e.target.classList.toggle("blink")}
-                onClick={() => props.quitConfirm()}
-            >yes</div>
+        <div className="testitem blink">
+            <div>{props.message}</div>
         </div>
     )
 }

@@ -1,36 +1,41 @@
 const config = {
     sounds: [
         "/shot.mp3",
-        "/explode.mp3"
+        "/explode.mp3",
+        "/menu.mp3",
+        "/bg_music.mp3"
     ],
-    effects: {
+    effect: {
         shot: 0,
-        explode: 1
+        explosion: 1,
+        menu: 2,
+        theme: 3
     },
     hotkey: {
         shipLeft: "ArrowLeft",
         shipRight: "ArrowRight",
         shipFire: "Space",
         escape: "Escape",
-        // confirm: "Enter"
+        confirm: "Enter"
     },
     gamearea: {
         width: 500,
         height: 550,
         offset: 8,
-        background: '/bg-space1.gif'
-    },
-    stars: {
-        total: 30,
-        offset: 5,
-        blinkInterval: 1300,
+        background: {
+            default: '/bg_space_1.gif',
+            optional:'/bg_space_2.gif'
+        }
     },
     ship: {
         top: 500,
         left: 240,
         width: 32,
         speed: 7,
-        skin: '/GLX_Galaxip.png',
+        skin: {
+            default: '/GLX_Galaxip_1.png',
+            optional: '/GLX_Galaxip_2.png'
+        },
         refreshInterval: 15,
     },
     bullet: {
@@ -38,7 +43,7 @@ const config = {
         initOffsetTop: -6,
         height: 5,
         speed: 10,
-        refreshInterval: 15
+        refreshInterval: 20
     },
     enemy: {
         width: 24,
