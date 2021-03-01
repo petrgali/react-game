@@ -11,16 +11,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
 .field {
   width: 500px;
   height: 550px;
 }
-#root {
-  min-height: 100vh;
-}
-.test {
+/* #root {
+  display: flex;
+  flex-direction: column;
+} */
+
+.screen {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(210, 199, 219);
 }

@@ -7,28 +7,28 @@ import useEvent from "../../hooks/useEvent"
 import { SFX } from "../../utils/audioProvider"
 
 
-
 export default function Gamefield() {
   let { enemyFleet, gamearea, ship, hotkey, bullet } = config
   let [controlState, setState] = useState({})
   let [gameState, updateGameState] = useState({ welcome: true, play: false, quitShow: false })
-
-  SFX.mainTheme.pause()
-  SFX.mainTheme.play()
-  ///////////////////
-  ///  change bg  ///
-  ///////////////////
   let [bgStyle, updateStyle] = useState({ backgroundImage: `url(${gamearea.background.default})` })
-  /////////////////////
-  ///  change skin  ///
-  /////////////////////
   let [skin, updateSkin] = useState(ship.skin.default)
 
-
-
+  const goFullscreen = () => {
+    let elem = document.querySelector(".screen")
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen()
+    } else {
+      document.exitFullscreen()
+    }
+  }
+  SFX.mainTheme.pause()
+  SFX.mainTheme.play()
   let enemies = JSON.parse(JSON.stringify(enemyFleet))
   useEvent("keydown", (event) => setState({ ...controlState, [event.code]: true }))
   useEvent("keyup", (event) => setState({ ...controlState, [event.code]: false }))
+
+  if (controlState[hotkey.fullscreen]) goFullscreen(true)
 
   if (gameState.welcome)
     return (

@@ -1,0 +1,13 @@
+.footer {
+    width: 400px;
+    height: 40px;
+    display: flex;
+}
+
+.text {
+    margin: auto;
+}
+
+img {
+    height: 40px
+}

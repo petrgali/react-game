@@ -1,9 +1,17 @@
 const config = {
+    musicConfig: {
+        on: true,
+        pic: "/sound_on.png"
+    },
+    fxConfig: {
+        on: true,
+        pic: "/sound_on.png"
+    },
     sounds: [
         "/shot.mp3",
         "/explode.mp3",
         "/menu.mp3",
-        "/bg_music.mp3"
+        "/bg_music.ogg"
     ],
     effect: {
         shot: 0,
@@ -15,8 +23,9 @@ const config = {
         shipLeft: "ArrowLeft",
         shipRight: "ArrowRight",
         shipFire: "Space",
-        escape: "Escape",
-        confirm: "Enter"
+        escape: "KeyQ",
+        confirm: "Enter",
+        fullscreen: "KeyF"
     },
     gamearea: {
         width: 500,
@@ -24,7 +33,7 @@ const config = {
         offset: 8,
         background: {
             default: '/bg_space_1.gif',
-            optional:'/bg_space_2.gif'
+            optional: '/bg_space_2.gif'
         }
     },
     ship: {

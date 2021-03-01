@@ -13,15 +13,15 @@ export default function Controller(props) {
         top: props.ship.top,
     })
     let [enemies, updateEnemies] = useState(props.enemies)
-    
+
     ////////////////////////////////////////
-    //   in game menu activation watcher  //
+    //   in game bindings watcher         //
     ////////////////////////////////////////
     useEffect(() => {
         if (props.controls[props.hotkey.escape]) props.quitMenu()
     }, [props.controls])
-    
-    
+
+
     ///////////////////////////////////
     //   ship control state watcher  //
     ///////////////////////////////////
@@ -59,7 +59,7 @@ export default function Controller(props) {
                 alien.destructible = false
                 setTimeout(() => {
                     updateEnemies(() => [...enemies.filter((_, idx) => idx !== result.id)])
-                }, 250);
+                }, 150);
             }
             return { ...alien }
         })])

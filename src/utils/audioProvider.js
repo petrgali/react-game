@@ -1,4 +1,3 @@
-
 import { Howl } from "howler"
 import config from "../config/GameConfig"
 let { sounds, effect } = config
