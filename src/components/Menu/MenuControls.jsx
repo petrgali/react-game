@@ -1,7 +1,7 @@
 import config from "../../config/GameConfig"
 import MenuBack from "./MenuBack"
 export default function MenuControls(props) {
-    let { hotkey, effects } = config
+    let { hotkey } = config
     let list = []
     for (let [option, value] of Object.entries(hotkey)) {
         list.push(<ControlsLine key={option} option={option} name={value} />)

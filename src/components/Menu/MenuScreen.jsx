@@ -25,6 +25,8 @@ export default function MenuScreen(props) {
                     goBack={() => setBody()} />
                 )
                 break
+            case "highscores":
+                break
         }
     }
     if (body != undefined) return (
@@ -34,21 +36,23 @@ export default function MenuScreen(props) {
     )
     return (
         <div className="menuscreen">
-            <div className="header"
-                onMouseEnter={(e) => {
+            <div className="header">
+                <div className="headertxt" onMouseEnter={(e) => {
                     e.target.classList.toggle("blink")
                     SFX.menu.play()
                 }}
-                onMouseOut={(e) => e.target.classList.toggle("blink")}
-                onClick={() => props.startGame()}
-            >new game</div>
-            {list.map((elem, idx) => <MenuItem
-                key={list.length - idx}
-                type={"listitem"}
-                text={elem}
-                SFX={SFX}
-                selectItem={(item) => openMenu(item)}
-            />)}
+                    onMouseOut={(e) => e.target.classList.toggle("blink")}
+                    onClick={() => props.startGame()}>new game</div>
+            </div>
+            <div className="list">
+                {list.map((elem, idx) => <MenuItem
+                    key={list.length - idx}
+                    type={"listitem"}
+                    text={elem}
+                    SFX={SFX}
+                    selectItem={(item) => openMenu(item)}
+                />)}
+            </div>
         </div>
     )
 }

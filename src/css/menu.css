@@ -6,7 +6,7 @@
 }
 
 input {
-    height:2%
+    height: 2%
 }
 
 .bottom {
@@ -14,9 +14,15 @@ input {
 }
 
 .header {
-    margin-bottom: 55%;
+    height:250px;
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
     cursor: pointer;
     text-transform: uppercase;
+}
+.headertxt{
+    height:20px
 }
 
 .testitem {
@@ -25,6 +31,7 @@ input {
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
+    padding-top: 3em;
 }
 
 .listitem {
@@ -32,6 +39,7 @@ input {
     margin-bottom: 3.5%;
     cursor: pointer;
 }
+
 
 .options.bg {
     width: 50%;
@@ -42,6 +50,7 @@ input {
     width: 95%;
     height: 55%;
 }
+
 .bg {
     margin: auto;
     background: rgb(34, 26, 68);
@@ -51,7 +60,7 @@ input {
 
 .choice {
     margin: auto;
-    height:50%;
+    height: 50%;
     width: 90%;
     display: flex;
     align-items: center;
@@ -63,10 +72,12 @@ input {
     display: flex;
     justify-content: space-between;
 }
-.active{
+
+.active {
     background: rgb(221, 206, 70);
     border-radius: 5px;
 }
+
 .item {
     width: 33%
 }

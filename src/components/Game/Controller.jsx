@@ -13,15 +13,12 @@ export default function Controller(props) {
         top: props.ship.top,
     })
     let [enemies, updateEnemies] = useState(props.enemies)
-
     ////////////////////////////////////////
-    //   in game bindings watcher         //
+    //       in game quit watcher         //
     ////////////////////////////////////////
     useEffect(() => {
         if (props.controls[props.hotkey.escape]) props.quitMenu()
     }, [props.controls])
-
-
     ///////////////////////////////////
     //   ship control state watcher  //
     ///////////////////////////////////
@@ -36,16 +33,17 @@ export default function Controller(props) {
         }, props.ship.refreshInterval)
         return () => clearInterval(interval)
     })
-
-
     ///////////////////////////////
     //      end round watcher    //
     ///////////////////////////////
     useEffect(() => {
-        if (enemies.length < 1) props.quitConfirm()
+        if (enemies.length < 1) {
+            SFX.complete.play()
+            setTimeout(() => {
+                props.statMode()
+            }, 1500)
+        }
     }, [enemies])
-
-
     ///////////////////////////////////
     //   ingame collision detector   //
     ///////////////////////////////////
@@ -64,8 +62,6 @@ export default function Controller(props) {
             return { ...alien }
         })])
     }
-
-
     let menu = props.gameState.quitShow
         ? <ConfirmMenu
             quitConfirm={() => props.quitConfirm()}
@@ -85,6 +81,7 @@ export default function Controller(props) {
                 skin={props.skin}
             />
             <BulletController
+                addBullet={() => props.addBullet()}
                 hotkey={props.hotkey}
                 bullet={props.bullet}
                 state={props.controls}

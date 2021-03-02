@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import Bullet from "./Bullet"
 import { SFX } from "../../utils/audioProvider"
+
 export default function BulletController(props) {
     let [bullet, updateBullet] = useState()
-
-
     useEffect(() => {
         if (props.state[props.hotkey.shipFire] && !bullet) {
+            props.addBullet()
             SFX.shot.play()
             updateBullet({
                 left: props.init.left + props.bullet.initOffsetLeft,
@@ -21,7 +21,7 @@ export default function BulletController(props) {
 
     if (!bullet) {
         return (
-            <div className="bullets"></div>
+            null
         )
     }
     return (

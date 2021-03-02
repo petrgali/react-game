@@ -7,7 +7,7 @@ import BgSwitcher from "./BgSwitcher"
 
 
 export default function MenuOptions(props) {
-    let { bullet, ship, gamearea, musicConfig, fxConfig } = config
+    let { bullet, ship, gamearea, icons, musicConfig, fxConfig } = config
 
     let [value, setValue] = useState(100 / bullet.refreshInterval)
     let [volMaster, setMaster] = useState(SFX.mainTheme.volume())
@@ -26,12 +26,12 @@ export default function MenuOptions(props) {
         if (music) {
             updateMusic(false)
             musicConfig.on = false
-            musicConfig.pic = "sound_off.png"
+            musicConfig.pic = icons.sound.disable
             SFX.mainTheme.stop()
         } else {
             updateMusic(true)
             musicConfig.on = true
-            musicConfig.pic = "sound_on.png"
+            musicConfig.pic = icons.sound.enable
             SFX.mainTheme.play()
         }
     }
@@ -39,11 +39,11 @@ export default function MenuOptions(props) {
         if (fx) {
             updateFX(false)
             fxConfig.on = false
-            fxConfig.pic = "sound_off.png"
+            fxConfig.pic = icons.sound.disable
         } else {
             updateFX(true)
             fxConfig.on = true
-            fxConfig.pic = "sound_on.png"
+            fxConfig.pic = icons.sound.enable
         }
         SFX.shot.mute(fx)
         SFX.explosion.mute(fx)

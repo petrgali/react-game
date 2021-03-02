@@ -1,4 +1,8 @@
 const config = {
+    name: {
+        length: 10,
+        sanitize: [" ", "<", ">"]
+    },
     musicConfig: {
         on: true,
         pic: "/sound_on.png"
@@ -11,13 +15,21 @@ const config = {
         "/shot.mp3",
         "/explode.mp3",
         "/menu.mp3",
+        "/complete.mp3",
         "/bg_music.ogg"
     ],
     effect: {
         shot: 0,
         explosion: 1,
         menu: 2,
-        theme: 3
+        complete: 3,
+        theme: 4
+    },
+    icons: {
+        sound: {
+            enable: "/sound_on.png",
+            disable: "/sound_off.png"
+        }
     },
     hotkey: {
         shipLeft: "ArrowLeft",
@@ -70,6 +82,12 @@ const config = {
         { left: 250, top: 100, destructible: true },
         { left: 310, top: 100, destructible: true },
         { left: 370, top: 100, destructible: true },
+        { left: 100, top: 150, destructible: true },
+        { left: 160, top: 150, destructible: true },
+        { left: 220, top: 150, destructible: true },
+        { left: 280, top: 150, destructible: true },
+        { left: 340, top: 150, destructible: true },
+        { left: 400, top: 150, destructible: true }
     ]
 
 }

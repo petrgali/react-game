@@ -16,6 +16,10 @@ export const SFX = {
         src: [sounds[effect.shot]],
         volume: 0.3,
     }),
+    complete: new Howl({
+        src: [sounds[effect.complete]],
+        volume: 0.3,
+    }),
     explosion: new Howl({
         src: [sounds[effect.explosion]],
         volume: 0.3,
