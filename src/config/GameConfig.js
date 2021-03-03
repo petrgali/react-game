@@ -37,8 +37,8 @@ const config = {
     },
     icons: {
         sound: {
-            enable: "/assets/sound_on.png",
-            disable: "/assets/sound_off.png"
+            enable: "/assets/game/sound_on.png",
+            disable: "/assets/game/sound_off.png"
         }
     },
     hotkey: {

@@ -17,10 +17,8 @@ export default function Gamefield() {
   let [skin, updateSkin] = useState(ship.skin.default)
   let [bulletCount, updateBullet] = useState(0)
   let [playerStat, updatePlayerStat] = useState({})
-
-  SFX.mainTheme.pause()
-  SFX.mainTheme.play()
   let enemies = JSON.parse(JSON.stringify(enemyFleet))
+  
   useEvent("keydown", (event) => setState({ ...controlState, [event.code]: true }))
   useEvent("keyup", (event) => setState({ ...controlState, [event.code]: false }))
 

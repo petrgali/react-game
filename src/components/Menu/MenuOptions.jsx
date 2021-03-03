@@ -8,7 +8,6 @@ import BgSwitcher from "./BgSwitcher"
 
 export default function MenuOptions(props) {
     let { bullet, ship, gamearea, icons, musicConfig, fxConfig } = config
-
     let [value, setValue] = useState(100 / bullet.refreshInterval)
     let [volMaster, setMaster] = useState(SFX.mainTheme.volume())
     let [volEffects, setEffects] = useState(SFX.menu.volume())

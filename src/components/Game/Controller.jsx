@@ -7,7 +7,6 @@ import ConfirmMenu from "../Menu/MenuConfirm"
 import { SFX } from '../../utils/audioProvider';
 
 export default function Controller(props) {
-    SFX.mainTheme.stop()
     let [position, setPosition] = useState({
         left: props.ship.left,
         top: props.ship.top,
