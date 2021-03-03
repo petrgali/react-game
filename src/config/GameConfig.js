@@ -1,12 +1,12 @@
 const config = {
     controlSkins: {
-        fire: "/controls/Space.png",
-        left: "/controls/Left.png",
-        right: "/controls/Right.png",
-        confirm: "/controls/Enter.png",
-        escape: "/controls/KeyQ.png",
-        fullscreen: "/controls/KeyF.png",
-        confirm: "/controls/Enter.png",
+        fire: "/assets/controls/Space.png",
+        left: "/assets/controls/Left.png",
+        right: "/assets/controls/Right.png",
+        confirm: "/assets/controls/Enter.png",
+        escape: "/assets/controls/KeyQ.png",
+        fullscreen: "/assets/controls/KeyF.png",
+        confirm: "/assets/controls/Enter.png",
     },
     highscoreCapacity: 10,
     name: {
@@ -15,11 +15,11 @@ const config = {
     },
     musicConfig: {
         on: true,
-        pic: "/assets/sound_on.png"
+        pic: "/assets/game/sound_on.png"
     },
     fxConfig: {
         on: true,
-        pic: "/assets/sound_on.png"
+        pic: "/assets/game/sound_on.png"
     },
     sounds: [
         "/sounds/shot.mp3",
@@ -54,8 +54,8 @@ const config = {
         height: 550,
         offset: 8,
         background: {
-            default: '/assets/bg_space_1.gif',
-            optional: '/assets/bg_space_2.gif'
+            default: '/assets/game/bg_space_1.gif',
+            optional: '/assets/game/bg_space_2.gif'
         }
     },
     ship: {
@@ -64,8 +64,8 @@ const config = {
         width: 32,
         speed: 7,
         skin: {
-            default: '/assets/GLX_Galaxip_1.png',
-            optional: '/assets/GLX_Galaxip_2.png'
+            default: '/assets/game/GLX_Galaxip_1.png',
+            optional: '/assets/game/GLX_Galaxip_2.png'
         },
         refreshInterval: 15,
     },
@@ -79,8 +79,8 @@ const config = {
     enemy: {
         width: 24,
         height: 14,
-        skin: "/assets/UFO_enemy.png",
-        explode: "assets/explosion.png"
+        skin: "/assets/game/UFO_enemy.png",
+        explode: "assets/game/explosion.png"
     },
     enemyFleet: [
         { left: 100, top: 50, destructible: true },
