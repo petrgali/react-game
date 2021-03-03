@@ -4,9 +4,10 @@ import MenuItem from "./MenuItem"
 import { useState } from "react"
 import MenuControls from "../Menu/MenuControls"
 import MenuOptions from "./MenuOptions"
+import HighScores from "../Statistics/HighScores";
 
 export default function MenuScreen(props) {
-    let list = ["options", "controls", "highscores"]
+    let list = ["options", "controls", "hall of fame"]
     let [body, setBody] = useState()
     const openMenu = (elem) => {
         switch (elem.target.textContent) {
@@ -25,7 +26,12 @@ export default function MenuScreen(props) {
                     goBack={() => setBody()} />
                 )
                 break
-            case "highscores":
+            case "hall of fame":
+                setBody(() => <HighScores
+                    SFX={SFX}
+                    goBack={() => setBody()}
+                />
+                )
                 break
         }
     }

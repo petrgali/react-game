@@ -1,19 +1,15 @@
-///////////////////////////////////////////////////
-//    !!hardcoded url && explosion offset!!      //
-/////////////////////////////////////////////////// 
-
-
-
+import config from "../../config/GameConfig"
 import "../../css/enemies.css"
 
 export default function Enemy(props) {
+    let { enemy } = config
     if (!props.init.class)
         return (
             <div
                 className="enemy fighter"
                 style={{
                     transform: `translate(${props.init.left}px, ${props.init.top}px)`,
-                    backgroundImage: `url('/UFO_enemy.png')`
+                    backgroundImage: `url(${enemy.skin})`
                 }}>
             </div>
         )
@@ -22,7 +18,7 @@ export default function Enemy(props) {
             className={props.init.class}
             style={{
                 transform: `translate(${props.init.left}px, ${props.init.top - 8}px)`,
-                backgroundImage: `url('/explosion.png')`
+                backgroundImage: `url(${enemy.explode})`
             }}>
         </div>
     )

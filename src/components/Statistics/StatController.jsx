@@ -11,7 +11,7 @@ export default function StatController(props) {
         return () => clearInterval(interval)
     }, [time])
     useEffect(() => {
-        props.updatePlayer(time, player)
+        props.updatePlayer(player)
     }, [player])
     return (
         <section>
@@ -19,6 +19,7 @@ export default function StatController(props) {
                 ? <Credentials
                     player={player}
                     updatePlayer={(name) => updatePlayer(name)}
+                    updateTime={()=>props.updateTime(time)}
                     control={props.controlState}
                     statComplete={() => props.statComplete()} />
                 : <ScoreInformer

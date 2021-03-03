@@ -47,12 +47,14 @@ export default function MenuOptions(props) {
         }
         SFX.shot.mute(fx)
         SFX.explosion.mute(fx)
+        SFX.complete.mute(fx)
         SFX.menu.mute(fx)
     }
     useEffect(() => {
         SFX.mainTheme.volume(volMaster)
     }, [volMaster])
     useEffect(() => {
+        SFX.complete.volume(volEffects)
         SFX.shot.volume(volEffects)
         SFX.explosion.volume(volEffects)
         SFX.menu.volume(volEffects)

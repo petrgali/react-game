@@ -1,22 +1,32 @@
 const config = {
+    controlSkins: {
+        fire: "/controls/Space.png",
+        left: "/controls/Left.png",
+        right: "/controls/Right.png",
+        confirm: "/controls/Enter.png",
+        escape: "/controls/KeyQ.png",
+        fullscreen: "/controls/KeyF.png",
+        confirm: "/controls/Enter.png",
+    },
+    highscoreCapacity: 10,
     name: {
         length: 10,
         sanitize: [" ", "<", ">"]
     },
     musicConfig: {
         on: true,
-        pic: "/sound_on.png"
+        pic: "/assets/sound_on.png"
     },
     fxConfig: {
         on: true,
-        pic: "/sound_on.png"
+        pic: "/assets/sound_on.png"
     },
     sounds: [
-        "/shot.mp3",
-        "/explode.mp3",
-        "/menu.mp3",
-        "/complete.mp3",
-        "/bg_music.ogg"
+        "/sounds/shot.mp3",
+        "/sounds/explode.mp3",
+        "/sounds/menu.mp3",
+        "/sounds/complete.mp3",
+        "/sounds/bg_music.ogg"
     ],
     effect: {
         shot: 0,
@@ -27,8 +37,8 @@ const config = {
     },
     icons: {
         sound: {
-            enable: "/sound_on.png",
-            disable: "/sound_off.png"
+            enable: "/assets/sound_on.png",
+            disable: "/assets/sound_off.png"
         }
     },
     hotkey: {
@@ -44,8 +54,8 @@ const config = {
         height: 550,
         offset: 8,
         background: {
-            default: '/bg_space_1.gif',
-            optional: '/bg_space_2.gif'
+            default: '/assets/bg_space_1.gif',
+            optional: '/assets/bg_space_2.gif'
         }
     },
     ship: {
@@ -54,8 +64,8 @@ const config = {
         width: 32,
         speed: 7,
         skin: {
-            default: '/GLX_Galaxip_1.png',
-            optional: '/GLX_Galaxip_2.png'
+            default: '/assets/GLX_Galaxip_1.png',
+            optional: '/assets/GLX_Galaxip_2.png'
         },
         refreshInterval: 15,
     },
@@ -68,7 +78,9 @@ const config = {
     },
     enemy: {
         width: 24,
-        height: 14
+        height: 14,
+        skin: "/assets/UFO_enemy.png",
+        explode: "assets/explosion.png"
     },
     enemyFleet: [
         { left: 100, top: 50, destructible: true },

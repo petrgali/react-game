@@ -12,10 +12,13 @@ export default function Credentials(props) {
             ? props.updatePlayer(props.player + key)
             : key === "Backspace"
                 ? props.updatePlayer(props.player.slice(0, -1))
-                : (key === "Enter" && props.player.length >= 3)
+                : (key === "Enter" && props.player.length >= 1)
                     ? props.statComplete()
                     : props.updatePlayer(props.player)
     }
+    useEffect(() => {
+        props.updateTime()
+    }, [])
     useEffect(() => {
         props.player.length <= name.length
             ? updateWarning(false)

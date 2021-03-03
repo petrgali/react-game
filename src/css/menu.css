@@ -5,6 +5,17 @@
     height: 87%;
 }
 
+img.item {
+    width: auto;
+    height: 40;
+}
+
+.listimg {
+    display: flex;
+    justify-content: center;
+    width: 40%
+}
+
 input {
     height: 2%
 }
@@ -14,15 +25,16 @@ input {
 }
 
 .header {
-    height:250px;
+    height: 250px;
     display: flex;
     justify-content: center;
-    align-items:baseline;
+    align-items: baseline;
     cursor: pointer;
     text-transform: uppercase;
 }
-.headertxt{
-    height:20px
+
+.headertxt {
+    height: 20px
 }
 
 .testitem {
@@ -40,6 +52,10 @@ input {
     cursor: pointer;
 }
 
+.score {
+    display: flex;
+    justify-content: space-between;
+}
 
 .options.bg {
     width: 50%;
@@ -47,8 +63,29 @@ input {
 }
 
 .control.bg {
-    width: 95%;
-    height: 55%;
+    width: 65%;
+    height: 75%;
+}
+
+.highscores.bg {
+    width: 80%;
+    height: 90%;
+}
+
+.position {
+    width: 10%
+}
+
+.player {
+    width: 40%;
+}
+
+.time {
+    width: 20%
+}
+
+.shots {
+    width: 20%
 }
 
 .bg {
@@ -68,9 +105,9 @@ input {
 }
 
 .controls {
-    margin-top: 3%;
+    margin-top: 2.5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .active {
@@ -79,7 +116,10 @@ input {
 }
 
 .item {
-    width: 33%
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 33%;
 }
 
 .blink {

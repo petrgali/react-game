@@ -7,7 +7,7 @@ import useEvent from "../../hooks/useEvent"
 import { SFX } from "../../utils/audioProvider"
 import goFullscreen from "../../utils/goFullscreen"
 import StatController from '../Statistics/StatController';
-
+import { statStorage } from "../../utils/storageHandler"
 
 export default function Gamefield() {
   let { enemyFleet, gamearea, ship, hotkey, bullet } = config
@@ -27,7 +27,7 @@ export default function Gamefield() {
   useEffect(() => {
     if (!gameState.play) updateBullet(0)
   }, [gameState])
- 
+
   if (controlState[hotkey.fullscreen] && !gameState.stat) goFullscreen()
   if (gameState.welcome)
     return (
@@ -37,6 +37,7 @@ export default function Gamefield() {
             welcome: !gameState.welcome,
             play: !gameState.play
           })}
+          playerStat={playerStat}
           bgStyle={bgStyle}
           newSkin={(skin) => updateSkin(skin)}
           newBg={(bg) => updateStyle(bg)}
@@ -50,13 +51,26 @@ export default function Gamefield() {
           bulletCount={bulletCount}
           gameState={gameState}
           control={controlState}
-          updatePlayer={(time, name) => updatePlayerStat({ player: name, time: time, bullets: bulletCount })}
-          statComplete={() => updateGameState({
-            ...gameState,
-            stat: !gameState.stat,
-            play: !gameState.play,
-            welcome: !gameState.welcome
+          updatePlayer={(name) =>
+            updatePlayerStat({
+              ...playerStat,
+              player: name,
+            })}
+          updateTime={(time) => updatePlayerStat({
+            ...playerStat,
+            time: time,
+            bullets: bulletCount
           })}
+          statComplete={() => {
+            statStorage(playerStat)
+            updateGameState({
+              ...gameState,
+              stat: !gameState.stat,
+              play: !gameState.play,
+              welcome: !gameState.welcome
+            })
+          }
+          }
         />
         {gameState.stat
           ? null

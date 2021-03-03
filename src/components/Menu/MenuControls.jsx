@@ -1,9 +1,9 @@
 import config from "../../config/GameConfig"
 import MenuBack from "./MenuBack"
 export default function MenuControls(props) {
-    let { hotkey } = config
+    let { controlSkins } = config
     let list = []
-    for (let [option, value] of Object.entries(hotkey)) {
+    for (let [option, value] of Object.entries(controlSkins)) {
         list.push(<ControlsLine key={option} option={option} name={value} />)
     }
     return (
@@ -20,12 +20,12 @@ export default function MenuControls(props) {
     )
 }
 const ControlsLine = (props) => {
-    let delimeter = "<->"
     return (
         <div className="controls">
             <div className="item">{props.option}</div>
-            <div className="item">{delimeter}</div>
-            <div className="item">{props.name}</div>
+            <div className="listimg">
+                <img className="item" src={props.name} />
+            </div>
         </div>
     )
 }
