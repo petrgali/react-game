@@ -1,0 +1,12 @@
+.game {
+  color: azure;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
+
+.hidden {
+  display: none;
+}

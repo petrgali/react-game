@@ -1,0 +1,11 @@
+.informer {
+    width: 35em;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    z-index: 5;
+    font-size: smaller;
+}

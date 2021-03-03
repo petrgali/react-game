@@ -1,0 +1,11 @@
+.enemy.fighter {
+    position: absolute;
+    width: 24px;
+    height: 14px;
+}
+
+.explosion {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}

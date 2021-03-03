@@ -1,0 +1,147 @@
+.menuscreen {
+    text-align: center;
+    font-size: 100%;
+    margin-top: 50px;
+    height: 87%;
+}
+
+img.item {
+    width: auto;
+    height: 40;
+}
+
+.listimg {
+    display: flex;
+    justify-content: center;
+    width: 40%
+}
+
+input {
+    height: 2%
+}
+
+.bottom {
+    margin-top: 57%;
+}
+
+.header {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.headertxt {
+    height: 20px
+}
+
+.testitem {
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 3em;
+}
+
+.listitem {
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    cursor: pointer;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options.bg {
+    width: 50%;
+    height: 95%;
+}
+
+.control.bg {
+    width: 65%;
+    height: 75%;
+}
+
+.highscores.bg {
+    width: 80%;
+    height: 90%;
+}
+
+.position {
+    width: 10%
+}
+
+.player {
+    width: 40%;
+}
+
+.time {
+    width: 20%
+}
+
+.shots {
+    width: 20%
+}
+
+.bg {
+    margin: auto;
+    background: rgb(34, 26, 68);
+    border-radius: 15px;
+    padding-top: 1%;
+}
+
+.choice {
+    margin: auto;
+    height: 50%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls {
+    margin-top: 2.5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.active {
+    background: rgb(221, 206, 70);
+    border-radius: 5px;
+}
+
+.item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 33%;
+}
+
+.blink {
+    animation: blinker 0.5s infinite;
+    font-size: larger;
+    color: rgb(34, 173, 34);
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
