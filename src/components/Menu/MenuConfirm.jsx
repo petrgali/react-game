@@ -10,7 +10,7 @@ export default function Confirm(props) {
     useEffect(() => {
         if (props.controls[hotkey.confirm]) props.quitConfirm()
     })
-    return (
+    return props.isOpen && (
         <div className="testitem blink">
             <div>{props.message}</div>
         </div>

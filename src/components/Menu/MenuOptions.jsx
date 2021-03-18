@@ -11,12 +11,13 @@ export default function MenuOptions(props) {
     let [value, setValue] = useState(100 / bullet.refreshInterval)
     let [volMaster, setMaster] = useState(SFX.mainTheme.volume())
     let [volEffects, setEffects] = useState(SFX.menu.volume())
+    // TODO: two places of truth: musicConfig and musicConfig.on
     let [music, updateMusic] = useState(musicConfig.on)
     let [fx, updateFX] = useState(fxConfig.on)
     let [activeSkin, updateActive] = useState()
     let [activeBg, updateBg] = useState()
 
-
+    // TODO: why its here
     let shipStyle = { width: 35 + 'px', padding: 2 + "%" }
     let bgStyle = { width: 25 + '%', padding: 2 + "%" }
 
@@ -24,6 +25,7 @@ export default function MenuOptions(props) {
     const checkMusic = () => {
         if (music) {
             updateMusic(false)
+            // TODO: you change config, should store config as state of GameField, also store config in several useState, rerender other components which depends on changed config parameter
             musicConfig.on = false
             musicConfig.pic = icons.sound.disable
             SFX.mainTheme.stop()
@@ -65,6 +67,8 @@ export default function MenuOptions(props) {
 
     return (
         <div className="options bg">
+            {/* TODO: listitem as separate component MenuOption */}
+            {/* TODO: create common component MenuOptionSwitcher on base of MenuOption  */}
             <div className="listitem">
                 <div>background</div>
                 <BgSwitcher
@@ -85,6 +89,7 @@ export default function MenuOptions(props) {
                     activeSkin={activeSkin}
                 />
             </div>
+            {/* TODO: create common component MenuOptionRange on base of MenuOption  */}
             <div className="listitem">
                 <div>blaster speed</div>
                 <input type="range" min="5" max="20" step="1" value={value}
@@ -105,6 +110,7 @@ export default function MenuOptions(props) {
                     <div>
                         <label>music</label>
                         <img src={musicConfig.pic} style={shipStyle}
+                             /* TODO: onClick={checkMusic} */
                             onClick={() => checkMusic()} />
                     </div>
                     <div>

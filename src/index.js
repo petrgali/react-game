@@ -8,6 +8,7 @@ import { SFX } from "./utils/audioProvider"
 SFX.mainTheme.play()
 ReactDOM.render(
   <React.StrictMode>
+    {/* TODO1: div and inside components move to separate App.jsx (Screen.jsx) component, because can be a lot of wrappers above  */}
     <div className="screen">
       <Gamefield />
       <Footer />

@@ -1,3 +1,4 @@
+// TODO: BgSwitcher and ShipSwitcher as one common component (so equal)
 export default function BgSwitcher(props) {
     let list = []
     let classname
@@ -7,6 +8,7 @@ export default function BgSwitcher(props) {
             : classname = ""
         list.push(<Bg key={elem}
             elem={elem}
+            /* TODO: switchBg={props.switchBg} */
             switchBg={(skin) => props.switchBg(skin)}
             newBg={(skin) => props.newBg(skin)}
             style={props.style}
@@ -19,6 +21,23 @@ export default function BgSwitcher(props) {
         </div>
     )
 }
+
+// TODO: remove for of from BgSwitcher component
+export const BgSwitcherV2 = (props) => (
+  <div className="choice">
+      {Object.values(props.gamearea.background).map(elem => (
+        <Bg
+          key={elem}
+          elem={elem}
+          switchBg={props.switchBg}
+          newBg={props.newBg}
+          style={props.style}
+          type={props.activeBg === elem ? 'active' : ''}
+        />
+      ))}
+  </div>
+)
+
 function Bg(props) {
     return (
         <img className={props.type}

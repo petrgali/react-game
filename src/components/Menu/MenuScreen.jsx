@@ -6,7 +6,9 @@ import MenuControls from "../Menu/MenuControls"
 import MenuOptions from "./MenuOptions"
 import HighScores from "../Statistics/HighScores";
 
+// TODO1: Instead of `body` I would store `openedMenu` which stores element from ["options", "controls", "hall of fame"] -> store inside state less data
 export default function MenuScreen(props) {
+    // TODO1: static variables move outside of component
     let list = ["options", "controls", "hall of fame"]
     let [body, setBody] = useState()
     const openMenu = (elem) => {
@@ -35,6 +37,7 @@ export default function MenuScreen(props) {
                 break
         }
     }
+    // TODO1: if (body) {}
     if (body != undefined) return (
         <div className="menuscreen">
             { body}
@@ -52,6 +55,7 @@ export default function MenuScreen(props) {
             </div>
             <div className="list">
                 {list.map((elem, idx) => <MenuItem
+                  /* TODO1: key={elem} */
                     key={list.length - idx}
                     type={"listitem"}
                     text={elem}

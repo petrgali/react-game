@@ -1,3 +1,4 @@
+// TODO1: Name of config file should starts from small letter (GameConfig)
 const config = {
     controlSkins: {
         fire: "/assets/controls/Space.png",
@@ -14,13 +15,17 @@ const config = {
         sanitize: [" ", "<", ">"]
     },
     musicConfig: {
-        on: true,
+        on: false,
         pic: "/assets/game/sound_on.png"
     },
     fxConfig: {
-        on: true,
+        on: false,
         pic: "/assets/game/sound_on.png"
     },
+    // TODO1: sounds and effects divided, I would write like `controlSkins` above
+    // sounds: [
+    //     shot: "/sounds/shot.mp3",
+    // ]
     sounds: [
         "/sounds/shot.mp3",
         "/sounds/explode.mp3",
@@ -84,22 +89,6 @@ const config = {
     },
     enemyFleet: [
         { left: 100, top: 50, destructible: true },
-        { left: 160, top: 50, destructible: true },
-        { left: 220, top: 50, destructible: true },
-        { left: 280, top: 50, destructible: true },
-        { left: 340, top: 50, destructible: true },
-        { left: 400, top: 50, destructible: true },
-        { left: 130, top: 100, destructible: true },
-        { left: 190, top: 100, destructible: true },
-        { left: 250, top: 100, destructible: true },
-        { left: 310, top: 100, destructible: true },
-        { left: 370, top: 100, destructible: true },
-        { left: 100, top: 150, destructible: true },
-        { left: 160, top: 150, destructible: true },
-        { left: 220, top: 150, destructible: true },
-        { left: 280, top: 150, destructible: true },
-        { left: 340, top: 150, destructible: true },
-        { left: 400, top: 150, destructible: true }
     ]
 
 }

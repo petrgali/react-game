@@ -38,6 +38,7 @@ export default function Controller(props) {
     useEffect(() => {
         if (enemies.length < 1) {
             SFX.complete.play()
+            // TODO: for what that timeout
             setTimeout(() => {
                 props.statMode()
             }, 1500)
@@ -61,6 +62,7 @@ export default function Controller(props) {
             return { ...alien }
         })])
     }
+    // TODO: add ConfirmMenu isOpen props
     let menu = props.gameState.quitShow
         ? <ConfirmMenu
             quitConfirm={() => props.quitConfirm()}

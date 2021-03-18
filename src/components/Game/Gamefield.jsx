@@ -10,15 +10,24 @@ import StatController from '../Statistics/StatController';
 import { statStorage } from "../../utils/storageHandler"
 
 export default function Gamefield() {
+  // TODO: move that destructuring to import or may be use like config.bullet
   let { enemyFleet, gamearea, ship, hotkey, bullet } = config
+  // TODO: const instead of let for useState
   let [controlState, setState] = useState({})
+  // TODO: create separate variable GAME_INITIAL_STATE outside of component and use it
+  // TODO: you store welcome and play, I think welcome === !play and play === !welcome ALWAYS, is it true?
+  // TODO: I would store only `phase` = ['play', 'welcome', ...] because user can be only in one state at one time -> easier if-else below
   let [gameState, updateGameState] = useState({ welcome: true, play: false, quitShow: false, stat: false })
   let [bgStyle, updateStyle] = useState({ backgroundImage: `url(${gamearea.background.default})` })
   let [skin, updateSkin] = useState(ship.skin.default)
   let [bulletCount, updateBullet] = useState(0)
   let [playerStat, updatePlayerStat] = useState({})
+  let [count, setCount] = useState(0)
+  // TODO: if you want just copy array use spread operator [...enemyFleet]
   let enemies = JSON.parse(JSON.stringify(enemyFleet))
-  
+
+  // TODO: ideal way -> setState(prevState => ({ ...prevState.controlState }))
+  // QUEST:
   useEvent("keydown", (event) => setState({ ...controlState, [event.code]: true }))
   useEvent("keyup", (event) => setState({ ...controlState, [event.code]: false }))
 
@@ -29,6 +38,7 @@ export default function Gamefield() {
   if (controlState[hotkey.fullscreen] && !gameState.stat) goFullscreen()
   if (gameState.welcome)
     return (
+      /* TODO: the same container for both return -> <div className="game field" style={bgStyle}> */
       <div className="game field" style={bgStyle}>
         <MenuScreen
           startGame={() => updateGameState({
